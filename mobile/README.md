@@ -1,2 +1,2 @@
-# 📲 Mobile
+# Mobile
 
