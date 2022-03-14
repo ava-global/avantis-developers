@@ -1,6 +1,6 @@
 # 🚀 Backend
 
-![](Backend/assets/avantis-techstack\_Backend-Infra.png)
+![](assets/avantis-techstack\_Backend-Infra.png)
 
 ## **Infrastructure**
 
