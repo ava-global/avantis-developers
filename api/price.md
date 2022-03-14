@@ -2,11 +2,11 @@
 
 To get data with Price core API, simply connect to this graphql url
 
-[https://dev.api.avantis.finance/playground/eod-price/graphql](https://dev.api.avantis.finance/playground/eod-price/graphql)
+[https://dev.api.avantis.finance/playground/price/graphql](https://dev.api.avantis.finance/playground/price/graphql)
 
 or you can use playground to play around with data first
 
-[https://dev.api.avantis.finance/playground/eod-price/graphiql](https://dev.api.avantis.finance/playground/eod-price/graphiql)
+[https://dev.api.avantis.finance/playground/price/graphiql](https://dev.api.avantis.finance/playground/price/graphiql)
 
 ## Eod Price
 
