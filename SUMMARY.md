@@ -1,4 +1,5 @@
 # Table of contents
+
 * [🎬 Get Started](SUMMARY.md)
 * [🏢 Architecture](architecture/README.md)
   * [🚀 Backend](backend/README.md)
