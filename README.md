@@ -1,4 +1,4 @@
-# ⭐ Get Started
+# 🎬 Get Started
 
 * [🎬 Get Started](./)
 * [🏢 Architecture](architecture/)
