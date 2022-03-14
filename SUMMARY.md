@@ -2,7 +2,7 @@
 
 * [🎬 Get Started](SUMMARY.md)
 * [🏢 Architecture](architecture/)
-  * [🚀 Backend](backend/)
+  * [🚀 Backend](backend/README.md)
   * [📲 Mobile](mobile/)
     * [🍄 iOS](mobile/ios.md)
     * [🤖 Android](mobile/android.md)
