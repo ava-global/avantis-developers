@@ -8,6 +8,114 @@ or you can use playground to play around with data first
 
 [https://dev.api.avantis.finance/playground/price/graphiql](https://dev.api.avantis.finance/playground/price/graphiql)
 
+## Realtime Price
+
+In Realtime Price APIs you can
+- get latest realtime price
+### Get latest realtime price
+
+example
+
+```graphql
+query {
+  {
+    price{
+      latest(criteria:{exchangeIdIn:[4], limit: 10}){
+        stockId
+        exchangedId
+        latestPrice
+        accumulatedValue
+        accumulatedVolume
+        
+      }
+    }
+  }
+}
+```
+
+this will get result
+
+```json
+{
+  "data": {
+    "price": {
+      "latest": [
+        {
+          "stockId": 120628,
+          "exchangedId": 4,
+          "latestPrice": "195.000000",
+          "accumulatedValue": "39.000000",
+          "accumulatedVolume": "200.000000"
+        },
+        {
+          "stockId": 36843,
+          "exchangedId": 4,
+          "latestPrice": "1265.000000",
+          "accumulatedValue": "126.000000",
+          "accumulatedVolume": "100.000000"
+        },
+        {
+          "stockId": 1387,
+          "exchangedId": 4,
+          "latestPrice": "28.750000",
+          "accumulatedValue": "12.000000",
+          "accumulatedVolume": "400.000000"
+        },
+        {
+          "stockId": 208082,
+          "exchangedId": 4,
+          "latestPrice": "9.100000",
+          "accumulatedValue": "1.000000",
+          "accumulatedVolume": "100.000000"
+        },
+        {
+          "stockId": 230288,
+          "exchangedId": 4,
+          "latestPrice": "9.550000",
+          "accumulatedValue": "3.000000",
+          "accumulatedVolume": "300.000000"
+        },
+        {
+          "stockId": 40198,
+          "exchangedId": 4,
+          "latestPrice": "13.600000",
+          "accumulatedValue": "15.000000",
+          "accumulatedVolume": "1100.000000"
+        },
+        {
+          "stockId": 19587,
+          "exchangedId": 4,
+          "latestPrice": "46.000000",
+          "accumulatedValue": "58.000000",
+          "accumulatedVolume": "1200.000000"
+        },
+        {
+          "stockId": 178870,
+          "exchangedId": 4,
+          "latestPrice": "8.000000",
+          "accumulatedValue": "7.000000",
+          "accumulatedVolume": "900.000000"
+        },
+        {
+          "stockId": 10505,
+          "exchangedId": 4,
+          "latestPrice": "29.750000",
+          "accumulatedValue": "21.000000",
+          "accumulatedVolume": "700.000000"
+        },
+        {
+          "stockId": 194767,
+          "exchangedId": 4,
+          "latestPrice": "63.750000",
+          "accumulatedValue": "38.000000",
+          "accumulatedVolume": "600.000000"
+        }
+      ]
+    }
+  }
+}
+```
+
 ## Eod Price
 
 In EodPrice APIs you can
@@ -17,7 +125,6 @@ In EodPrice APIs you can
 - get latest eod price
 - get aggregated eod price
 - get last close price
-- get latest realtime price
 
 ### Get single eod price
 
@@ -520,106 +627,3 @@ this will get result
 }
 ```
 
-### Get latest realtime price
-
-example
-
-```graphql
-query {
-  {
-    price{
-      latest(criteria:{exchangeIdIn:[4], limit: 10}){
-        stockId
-        exchangedId
-        latestPrice
-        accumulatedValue
-        accumulatedVolume
-        
-      }
-    }
-  }
-}
-```
-
-this will get result
-
-```json
-{
-  "data": {
-    "price": {
-      "latest": [
-        {
-          "stockId": 120628,
-          "exchangedId": 4,
-          "latestPrice": "195.000000",
-          "accumulatedValue": "39.000000",
-          "accumulatedVolume": "200.000000"
-        },
-        {
-          "stockId": 36843,
-          "exchangedId": 4,
-          "latestPrice": "1265.000000",
-          "accumulatedValue": "126.000000",
-          "accumulatedVolume": "100.000000"
-        },
-        {
-          "stockId": 1387,
-          "exchangedId": 4,
-          "latestPrice": "28.750000",
-          "accumulatedValue": "12.000000",
-          "accumulatedVolume": "400.000000"
-        },
-        {
-          "stockId": 208082,
-          "exchangedId": 4,
-          "latestPrice": "9.100000",
-          "accumulatedValue": "1.000000",
-          "accumulatedVolume": "100.000000"
-        },
-        {
-          "stockId": 230288,
-          "exchangedId": 4,
-          "latestPrice": "9.550000",
-          "accumulatedValue": "3.000000",
-          "accumulatedVolume": "300.000000"
-        },
-        {
-          "stockId": 40198,
-          "exchangedId": 4,
-          "latestPrice": "13.600000",
-          "accumulatedValue": "15.000000",
-          "accumulatedVolume": "1100.000000"
-        },
-        {
-          "stockId": 19587,
-          "exchangedId": 4,
-          "latestPrice": "46.000000",
-          "accumulatedValue": "58.000000",
-          "accumulatedVolume": "1200.000000"
-        },
-        {
-          "stockId": 178870,
-          "exchangedId": 4,
-          "latestPrice": "8.000000",
-          "accumulatedValue": "7.000000",
-          "accumulatedVolume": "900.000000"
-        },
-        {
-          "stockId": 10505,
-          "exchangedId": 4,
-          "latestPrice": "29.750000",
-          "accumulatedValue": "21.000000",
-          "accumulatedVolume": "700.000000"
-        },
-        {
-          "stockId": 194767,
-          "exchangedId": 4,
-          "latestPrice": "63.750000",
-          "accumulatedValue": "38.000000",
-          "accumulatedVolume": "600.000000"
-        }
-      ]
-    }
-  }
-}
-```
