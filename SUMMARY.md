@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🎬 Get Started](README.md)
+* [🎬 Get Started](SUMMARY.md)
 * [🏢 Architecture](architecture/)
   * [🚀 Backend](backend/)
   * [📲 Mobile](mobile/)
