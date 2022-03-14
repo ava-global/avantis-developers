@@ -1,5 +1,5 @@
 # Table of contents
-* [Avantis Intro](README.md)
+* [Avantis Intro](SUMMARY.md)
 * [🏢Architecture](architecture/README.md)
   * [🚀 Backend](backend/README.md)
   * [📲 Mobile](mobile/README.md)
