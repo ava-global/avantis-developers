@@ -6,6 +6,17 @@ This is a base url for quering mentioned data via a Graphql Playground. [https:/
 
 And please use this endpoint for querying data via an programatic client. [https://dev.api.avantis.finance/playground/profile/graphql](https://dev.api.avantis.finance/playground/profile/graphql)
 
+- [Profiles Core API](#profiles-core-api)
+  - [Company](#company)
+    - [Identity](#identity)
+    - [Filter](#filter)
+  - [Stock](#stock)
+    - [Identity](#identity-1)
+    - [Filter](#filter-1)
+  - [Mutual Fund](#mutual-fund)
+    - [Identity](#identity-2)
+    - [Advance Search](#advance-search)
+
 ## Company
 
 The following list are the available usecases that a `Company` Graphql comes up with.
@@ -42,16 +53,14 @@ A result.
 {
   "data": {
     "company": {
-      "identity": {
-        "companyId": 46229,
-        "name": "Apple Inc.",
+      "companyId": 46229,
+      "name": "Apple Inc.",
+      "countryId": 11,
+      "country": {
         "countryId": 11,
-        "country": {
-          "countryId": 11,
-          "name": "United States",
-          "isoAlpha2": "US",
-          "isoAlpha3": "USA"
-        }
+        "name": "United States",
+        "isoAlpha2": "US",
+        "isoAlpha3": "USA"
       }
     }
   }
@@ -62,11 +71,11 @@ A result.
 
 This Graphql query operation allows a client to get a list of companies information by provided criteria, which consists of
 
-- `limit`. _Required_
-- `offset`. _Required_
 - `filter`. _Required_
   - `nameLike` Filter companies by a part of their own name (_case-insensitive_). _Optional_
   - `countryIdEq` Filter companies by a country that they are located in. _Optional_
+- `limit`. _Optional_
+- `offset`. _Optional_
 - `order`. _Optional_
   - `orderBy`. _Required_
   - `orderDirection`. _Required_
@@ -78,12 +87,12 @@ Request:
 ```graphql
 {
   companies(input: {
-    limit: 20
-    offset: 40
     filter: {
-      nameLike: "tesla, inc",
+      nameLike: "tesla, inc"
       countryIdEq: 11
     }
+    limit: 20
+    offset: 0
     order: {
       orderBy: MARKET_CAP
       orderDirection: ASCENDING
@@ -108,32 +117,32 @@ Request:
 ```json
 {
   "data": {
-    "company": {
-      "filter": [
-        {
-          "companyId": 4364,
-          "name": "Applebee's International, Inc.",
-          "countryId": 11,
-          "country": {
-            "countryId": 11,
-            "name": "United States",
-            "isoAlpha2": "US",
-            "isoAlpha3": "USA"
-          }
+    "companies": [
+      {
+        "companyId": 14837,
+        "name": "Tesla, Inc.",
+        "marketCap": {
+          "valueMillion": "1120932.019814"
         },
-        {
-          "companyId": 7065,
-          "name": "Applebaums Food Market Inc.",
+        "country": {
           "countryId": 11,
-          "country": {
-            "countryId": 11,
-            "name": "United States",
-            "isoAlpha2": "US",
-            "isoAlpha3": "USA"
-          }
+          "name": "United States",
+          "isoAlpha2": "US",
+          "isoAlpha3": "USA"
         }
-      ]
-    }
+      },
+      {
+        "companyId": 8944450,
+        "name": "TESLA, Inc.",
+        "marketCap": null,
+        "country": {
+          "countryId": 11,
+          "name": "United States",
+          "isoAlpha2": "US",
+          "isoAlpha3": "USA"
+        }
+      }
+    ]
   }
 }
 ```
@@ -200,13 +209,16 @@ A result.
 
 This Graphql query operation allows a client to get a list of stock information by provided criteria, which consists of
 
-- `isinEq` Filter by a stock isin. _Optional_
-- `symbolStartWith` Filter by an symbol prefix (_case-insensitive_). _Optional_
-- `companyIdEq` Filter by a `company_id`. _Optional_
-- `exchangeIdEq` Filter by an `exchange_id`. _Optional_
-- `companyNameLike` Filter by part of a company name (_case-insensitive_). _Optional_
-- `symbolIn` Filter by a list of stock symbol. (_case-sensitive_) _Optional_
-- `symbolLike` Filter by part of a stock name (_case-insensitive_). _Optional_
+- `filter` _Required_
+  - `isinEq` Filter by a stock isin. _Optional_
+  - `symbolStartWith` Filter by an symbol prefix (_case-insensitive_). _Optional_
+  - `companyIdEq` Filter by a `company_id`. _Optional_
+  - `exchangeIdEq` Filter by an `exchange_id`. _Optional_
+  - `companyNameLike` Filter by part of a company name (_case-insensitive_). _Optional_
+  - `symbolIn` Filter by a list of stock symbol. (_case-sensitive_) _Optional_
+  - `symbolLike` Filter by part of a stock name (_case-insensitive_). _Optional_
+- `limit` _Optional_
+- `offset` _Optional_
 
 An example query to retrieve all stock that its own name starts with `BrK` (_case-insensitive_) and all of them are listed in NYSE.
 
@@ -317,8 +329,8 @@ This Graphql query operation allows a client to get a list of mutual fund inform
 - `fundStatisticsReturnDay` Filter by a range of fund's daily return. _Optional_
 - `fundStatisticsReturnYear` Filter by a range of fund's annually return. _Optional_
 - `fundInfoRiskSpectrumNumber` Filter by a range of a risk spectrum number. _Optional_
-- `limit`
-- `offset`
+- `limit` _Optional_
+- `offset` _Optional_
 - `orderBys` A list of `OrderBy` Graphql input, which consist of order direction and order by field.
 
 An example query to retrieve all mutual fund that has
