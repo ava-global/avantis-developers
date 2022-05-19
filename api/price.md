@@ -1,4 +1,4 @@
-# Prices
+# 💰 Price
 
 To get data with Price core API, simply connect to this graphql url
 
@@ -11,7 +11,9 @@ or you can use playground to play around with data first
 ## Realtime Price
 
 In Realtime Price APIs you can
-- get latest realtime price
+
+* get latest realtime price
+
 ### Get latest realtime price
 
 example
@@ -120,17 +122,17 @@ this will get result
 
 In EodPrice APIs you can
 
-- get single eod price
-- get filtered eod price
-- get latest eod price
-- get aggregated eod price
-- get last close price
+* get single eod price
+* get filtered eod price
+* get latest eod price
+* get aggregated eod price
+* get last close price
 
 ### Get single eod price
 
-- you can use field `identity` provided with 2 arguments
-  - `stockId`
-  - `timestamp` with format "YYYY-mm-dd"
+* you can use field `identity` provided with 2 arguments
+  * `stockId`
+  * `timestamp` with format "YYYY-mm-dd"
 
 example
 
@@ -176,25 +178,25 @@ this should get you the result
 
 ### Get filtered end of the day Price
 
-- you can use field `filter` provided with 1 schema arguments
-  - `criteria`
-    - mandatory field
-      - `limit`
-    - optional
-      - `stockIdEq`
-      - `exchangeIdIn`
-      - `startDate` with format "YYYY-mm-dd"
-      - `endDate` with format "YYYY-mm-dd"
-      - `dateEq` with format "YYYY-mm-dd"
-      - `orderBy`
-        - `VALUE`
-        - `VOLUME`
-        - `CHANGE_PERCENTAGE`
-        - `TIMESTAMP`
-      - `orderDirection`:
-        - `ASCENDING`
-        - `DESCENDING`
-- you can sort by using `orderBy` and its direction wtih `orderDirection`
+* you can use field `filter` provided with 1 schema arguments
+  * `criteria`
+    * mandatory field
+      * `limit`
+    * optional
+      * `stockIdEq`
+      * `exchangeIdIn`
+      * `startDate` with format "YYYY-mm-dd"
+      * `endDate` with format "YYYY-mm-dd"
+      * `dateEq` with format "YYYY-mm-dd"
+      * `orderBy`
+        * `VALUE`
+        * `VOLUME`
+        * `CHANGE_PERCENTAGE`
+        * `TIMESTAMP`
+      * `orderDirection`:
+        * `ASCENDING`
+        * `DESCENDING`
+* you can sort by using `orderBy` and its direction wtih `orderDirection`
 
 example
 
@@ -308,11 +310,11 @@ this will get result
 
 Aggregation type:
 
-- YTD
-- WEEK
-- MONTH
-- QUARTER
-- YEAR
+* YTD
+* WEEK
+* MONTH
+* QUARTER
+* YEAR
 
 example
 
@@ -529,8 +531,8 @@ this will get result
 
 In Historical NAV APIs you can
 
-- get single NAV
-- get filtered NAV
+* get single NAV
+* get filtered NAV
 
 ### Get single NAV
 
@@ -572,7 +574,7 @@ this will get result
 
 example
 
-```grahpql
+```
 query {
   fundNav {
     filter(
@@ -626,4 +628,3 @@ this will get result
   }
 }
 ```
-

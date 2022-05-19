@@ -1,4 +1,4 @@
-# Fundamental
+# 📈 Fundamental
 
 To get data with Fundamental core API, simply connect to this graphql url
 

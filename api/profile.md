@@ -1,4 +1,4 @@
-# Profiles Core API
+# 🏠 Profile
 
 This API provides a `Company`, `Stock` and `Mutual Fund` (Currently, Only Thailand Mutual Fund data is available.) informations via Graphql query.
 
@@ -6,24 +6,24 @@ This is a base url for quering mentioned data via a Graphql Playground. [https:/
 
 And please use this endpoint for querying data via an programatic client. [https://dev.api.avantis.finance/playground/profile/graphql](https://dev.api.avantis.finance/playground/profile/graphql)
 
-- [Profiles Core API](#profiles-core-api)
-  - [Company](#company)
-    - [Identity](#identity)
-    - [Filter](#filter)
-  - [Stock](#stock)
-    - [Identity](#identity-1)
-    - [Filter](#filter-1)
-  - [Mutual Fund](#mutual-fund)
-    - [Identity](#identity-2)
-    - [Advance Search](#advance-search)
+* [Profiles Core API](profile.md#profiles-core-api)
+  * [Company](profile.md#company)
+    * [Identity](profile.md#identity)
+    * [Filter](profile.md#filter)
+  * [Stock](profile.md#stock)
+    * [Identity](profile.md#identity-1)
+    * [Filter](profile.md#filter-1)
+  * [Mutual Fund](profile.md#mutual-fund)
+    * [Identity](profile.md#identity-2)
+    * [Advance Search](profile.md#advance-search)
 
 ## Company
 
 The following list are the available usecases that a `Company` Graphql comes up with.
 
-- Get a company information by a `company_id`
-- Retrieve a list of companies where the companies's name like a criteria.
-- Retrieve a list of companies where the companies are located in.
+* Get a company information by a `company_id`
+* Retrieve a list of companies where the companies's name like a criteria.
+* Retrieve a list of companies where the companies are located in.
 
 ### Identity
 
@@ -71,14 +71,14 @@ A result.
 
 This Graphql query operation allows a client to get a list of companies information by provided criteria, which consists of
 
-- `filter`. _Required_
-  - `nameLike` Filter companies by a part of their own name (_case-insensitive_). _Optional_
-  - `countryIdEq` Filter companies by a country that they are located in. _Optional_
-- `limit`. _Optional_
-- `offset`. _Optional_
-- `order`. _Optional_
-  - `orderBy`. _Required_
-  - `orderDirection`. _Required_
+* `filter`. _Required_
+  * `nameLike` Filter companies by a part of their own name (_case-insensitive_). _Optional_
+  * `countryIdEq` Filter companies by a country that they are located in. _Optional_
+* `limit`. _Optional_
+* `offset`. _Optional_
+* `order`. _Optional_
+  * `orderBy`. _Required_
+  * `orderDirection`. _Required_
 
 Example:
 
@@ -111,7 +111,6 @@ Request:
     }
   }
 }
-
 ```
 
 ```json
@@ -151,9 +150,9 @@ Request:
 
 The following list are the the non-exhaustive usecases that a `Stock` Graphql comes up with.
 
-- Get a stock information by a `stock_id`
-- Retrieve a list of stocks that their company name match a string in your query.
-- Retrieve a list of stocks in a specified exchange.
+* Get a stock information by a `stock_id`
+* Retrieve a list of stocks that their company name match a string in your query.
+* Retrieve a list of stocks in a specified exchange.
 
 ### Identity
 
@@ -209,16 +208,16 @@ A result.
 
 This Graphql query operation allows a client to get a list of stock information by provided criteria, which consists of
 
-- `filter` _Required_
-  - `isinEq` Filter by a stock isin. _Optional_
-  - `symbolStartWith` Filter by an symbol prefix (_case-insensitive_). _Optional_
-  - `companyIdEq` Filter by a `company_id`. _Optional_
-  - `exchangeIdEq` Filter by an `exchange_id`. _Optional_
-  - `companyNameLike` Filter by part of a company name (_case-insensitive_). _Optional_
-  - `symbolIn` Filter by a list of stock symbol. (_case-sensitive_) _Optional_
-  - `symbolLike` Filter by part of a stock name (_case-insensitive_). _Optional_
-- `limit` _Optional_
-- `offset` _Optional_
+* `filter` _Required_
+  * `isinEq` Filter by a stock isin. _Optional_
+  * `symbolStartWith` Filter by an symbol prefix (_case-insensitive_). _Optional_
+  * `companyIdEq` Filter by a `company_id`. _Optional_
+  * `exchangeIdEq` Filter by an `exchange_id`. _Optional_
+  * `companyNameLike` Filter by part of a company name (_case-insensitive_). _Optional_
+  * `symbolIn` Filter by a list of stock symbol. (_case-sensitive_) _Optional_
+  * `symbolLike` Filter by part of a stock name (_case-insensitive_). _Optional_
+* `limit` _Optional_
+* `offset` _Optional_
 
 An example query to retrieve all stock that its own name starts with `BrK` (_case-insensitive_) and all of them are listed in NYSE.
 
@@ -285,8 +284,8 @@ An example query to retrieve all stock that its own name starts with `BrK` (_cas
 
 The following list are the the non-exhaustive usecases that a `MutualFund` Graphql comes up with.
 
-- Get a mutual fund information by a `fund_id`
-- Retrieve a list of mutual funds that has 3 years return higher than 5% and sharpe ratio is higher than zero.
+* Get a mutual fund information by a `fund_id`
+* Retrieve a list of mutual funds that has 3 years return higher than 5% and sharpe ratio is higher than zero.
 
 ### Identity
 
@@ -326,17 +325,17 @@ A result.
 
 This Graphql query operation allows a client to get a list of mutual fund information by provided criteria, below is an non-exhaustive list of currently available criteria.
 
-- `fundStatisticsReturnDay` Filter by a range of fund's daily return. _Optional_
-- `fundStatisticsReturnYear` Filter by a range of fund's annually return. _Optional_
-- `fundInfoRiskSpectrumNumber` Filter by a range of a risk spectrum number. _Optional_
-- `limit` _Optional_
-- `offset` _Optional_
-- `orderBys` A list of `OrderBy` Graphql input, which consist of order direction and order by field.
+* `fundStatisticsReturnDay` Filter by a range of fund's daily return. _Optional_
+* `fundStatisticsReturnYear` Filter by a range of fund's annually return. _Optional_
+* `fundInfoRiskSpectrumNumber` Filter by a range of a risk spectrum number. _Optional_
+* `limit` _Optional_
+* `offset` _Optional_
+* `orderBys` A list of `OrderBy` Graphql input, which consist of order direction and order by field.
 
 An example query to retrieve all mutual fund that has
 
-- 3 months return is greater than 2.5 percent
-- 1 year sharpe ratio is greater than 0 percent
+* 3 months return is greater than 2.5 percent
+* 1 year sharpe ratio is greater than 0 percent
 
 and sort a result by net expense ratio in ascending order, then take only 3 of them as a result.
 

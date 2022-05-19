@@ -1,4 +1,4 @@
-# Contents
+# 🗄 Contents
 
 An API for creating and query contents.
 
@@ -12,12 +12,12 @@ Fields explanation.
 
 `content_type_id`
 
-- `1` is `NEWS`
-- `2` is `RESEARCH`
+* `1` is `NEWS`
+* `2` is `RESEARCH`
 
 `source_id`
 
-- `1` is `KS`
+* `1` is `KS`
 
 ```json
 {
@@ -52,23 +52,22 @@ And please use this endpoint for querying data via an programatic client. [https
 
 _Requirement_
 
-- A client have to set a `X-Auth-Request-Groups` HTTP header value to a csv of group ids before access the graphql endpoint.
+* A client have to set a `X-Auth-Request-Groups` HTTP header value to a csv of group ids before access the graphql endpoint.
 
 ### Filter
 
 This Graphql query operation allows a client to get a list of contents by provided criteria, which consists of
 
-- `sourceIdsIn` Filter by a list of `source_id`. _Optional_
-- `stockIdsIn` Filter by a list of `stock_id`. _Optional_
-- `contentTypeIdEq` Filter by `content_type_id`. _Optional_
-- `contentTagsIn` Filter by a list of stock code. _Optional_
-- `orderBy` Order by field. (Currently, support only `published_when`). _Optional_
-- `orderDirection` _Optional_
-- `offset`
-- `limit`
+* `sourceIdsIn` Filter by a list of `source_id`. _Optional_
+* `stockIdsIn` Filter by a list of `stock_id`. _Optional_
+* `contentTypeIdEq` Filter by `content_type_id`. _Optional_
+* `contentTagsIn` Filter by a list of stock code. _Optional_
+* `orderBy` Order by field. (Currently, support only `published_when`). _Optional_
+* `orderDirection` _Optional_
+* `offset`
+* `limit`
 
-X-Auth-Request-Groups header is required.
-An example header.
+X-Auth-Request-Groups header is required. An example header.
 
 ```graphql
 {
