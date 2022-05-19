@@ -8,7 +8,7 @@ coverY: 0
 
 ### Application main architecture (Clean Swift)
 
-![](../.gitbook/assets/clean-full-picture-2.png)
+![](../iOS/assets/clean-full-picture-2.png)
 
 The Clean Swift architecture is derived from the Clean Architecture proposed by Uncle Bob. They share many common concepts such as the components, boundaries, and models.
 
@@ -16,7 +16,7 @@ The Clean Swift architecture is derived from the Clean Architecture proposed by 
 
 The view controller, interactor, and presenter are the three main components of Clean Swift. They act as input and output to one another as shown in the following diagram.
 
-![](../.gitbook/assets/vip-2.png)
+![](../iOS/assets/vip-2.png)
 
 The view controller’s output connects to the interactor’s input. The interactor’s output connects to the presenter’s input. The presenter’s output connects to the view controller’s input. We’ll create special objects to pass data through the boundaries between the components. This allows us to decouple the underlying data models from the components. These special objects consists of only primitive types such as Int, Double, and String. We can create structs, classes, or enums to represent the data but there should only be primitive types inside these containing entities.
 
