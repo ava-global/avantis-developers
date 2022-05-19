@@ -11,4 +11,5 @@
   * [📈 Fundamental](api/fundamental.md)
   * [💰 Price](api/price.md)
   * [🏠 Profile](api/profile.md)
+  * [realtime price](api/realtime.md)
 * [🛫 Insight @ Avantis](https://insight.avantis.finance)
