@@ -11,5 +11,5 @@
   * [📈 Fundamental](api/fundamental.md)
   * [💰 Price](api/price.md)
   * [🏠 Profile](api/profile.md)
-  * ⚡ [Websocket](api-docs/websocket.md)
+  * [⚡ Websocket](api-docs/websocket.md)
 * [🛫 Insight @ Avantis](https://insight.avantis.finance)

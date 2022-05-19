@@ -57,25 +57,25 @@ example of query
 
 ```graphql
 subscription stock {
-    # PTTEP: 236032
-    # KBANK: 15594
-    stockPrice(stockIdIn: [236032, 15594]) { 
-        stockId
-        executePrice
-        exchangeId
-        accVolume
-        accValue
-        highestPrice
-        lastOpenPrice
-        settradeDateTime
-        volume
-        bidside
-        isBid
-        offerside
-        lastClosePrice
-        lastCloseDate
-        rowNo
-    }
+  # PTTEP: 236032
+  # KBANK: 15594
+  stockPrice(stockIdIn: [236032, 15594]) {
+    stockId
+    executePrice
+    exchangeId
+    accVolume
+    accValue
+    highestPrice
+    lastOpenPrice
+    settradeDateTime
+    volume
+    bidside
+    isBid
+    offerside
+    lastClosePrice
+    lastCloseDate
+    rowNo
+  }
 }
 ```
 
@@ -143,19 +143,19 @@ Either `x-api-key` or `authorization` were required.
 
 ```json
 {
-    "type": "connection_init",
-    "payload": {
-        "x-api-key": "API_KEY"
-    }
+  "type": "connection_init",
+  "payload": {
+    "x-api-key": "API_KEY"
+  }
 }
 ```
 
 ```json
 {
-    "type": "connection_init",
-    "payload": {
-        "authorization": "TOKEN"
-    }
+  "type": "connection_init",
+  "payload": {
+    "authorization": "TOKEN"
+  }
 }
 ```
 
