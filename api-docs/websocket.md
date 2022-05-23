@@ -24,6 +24,7 @@ or you can use playground to play around with data first
 ```graphql
 type SubscriptionRoot {
   stockPrice(stockIdIn: [Int!]!): StockPrice!
+  bidOffer(stockIdIn: [Int!]!): BidOffer!
 }
 
 type StockPrice {
@@ -44,6 +45,14 @@ type StockPrice {
   lastClosePrice: BigDecimal!
   lastCloseDate: DateTime!
   rowNo: Int!
+}
+
+type BidOffer {
+  stockId: Int!
+  action: String!
+  bids: [[String!]!]!
+  offers: [[String!]!]!
+  snapshotChecksum: String!
 }
 ```
 
@@ -134,6 +143,211 @@ example of the results (2)
   }
 }
 ```
+
+### Subscribe to get real time stock Bid/Offer
+
+this subscription should get the stream of the results. where `stockIdIn` can be get from [profile api](../api/profile.md)
+
+example of query&#x20;
+
+```graphql
+subscription bidoffer {
+  # PTTEP: 236032
+  # KBANK: 15594
+  bidOffer(stockIdIn: [15594]) {
+    stockId
+    action
+    bids
+    offers
+    snapshotChecksum
+  }
+}
+```
+
+Result will have 2 types:&#x20;
+
+* initial message
+  * action: S
+  * contains 5 elements of bid and offer data on each side.
+* update message
+  * action: I, D, U
+  * contains only updated value of bid or offer
+
+example of result - Initial message
+
+```graphql
+{
+  "data": {
+    "bidOffer": {
+      "stockId": 15594,
+      "action": "S",
+      "bids": [
+        [
+          "B:ATO",
+          "30100"
+        ],
+        [
+          "152.5",
+          "600"
+        ],
+        [
+          "150.5",
+          "9900"
+        ],
+        [
+          "148.5",
+          "4300"
+        ],
+        [
+          "147.5",
+          "1000"
+        ]
+      ],
+      "offers": [
+        [
+          "O:ATO",
+          "9400"
+        ],
+        [
+          "138.5",
+          "2400"
+        ],
+        [
+          "139",
+          "19400"
+        ],
+        [
+          "142",
+          "3000"
+        ],
+        [
+          "144",
+          "9000"
+        ]
+      ],
+      "snapshotChecksum": "3023434458"
+    }
+  }
+}
+```
+
+example of result - Update message
+
+```graphql
+{
+  "data": {
+    "bidOffer": {
+      "stockId": 15594,
+      "action": "U",
+      "bids": [
+        [
+          "B:ATO",
+          "50100"
+        ]
+      ],
+      "offers": [],
+      "snapshotChecksum": "2263682656"
+    }
+  }
+}
+```
+
+### checksum
+
+Every message contains an unsigned 32-bit integer `checksum` of the bid/offer. You can run the same `checksum` on your client bid/offer state and compare it to `checksum` field. If they are the same, your client's state is correct. If not, you have likely lost or mishandled a packet and should re-subscribe to receive the initial snapshot.&#x20;
+
+The checksum operates on a string that represents the first 10 orders on the bid/offer sorted by highest to lowest price. The format of the string is:
+
+`{best_`_`price}|{side}:{volume},{second_price`_`}|`_`{side}:{volume},...`_
+
+If message contains **ATO** or **ATC**, the format will be as follows:
+
+`{side}:{ATO,ATC}|{side}:{volume},{best_`_`price}|{side}:{volume},{second_price`_`}|`_`{side}:{volume},...`_
+
+The final checksum is the `crc32` value of this string
+
+#### Initial message
+
+When client received message from the websocket with following example, then calculate with the string format in the previous section. And the message also contains checksum value for validate state between client and server in next message.
+
+```graphql
+...
+      "action": "S",
+      "bids": [
+        [
+          "B:ATO",
+          "30100"
+        ],
+        [
+          "152.5",
+          "600"
+        ],
+        [
+          "150.5",
+          "9900"
+        ],
+        [
+          "148.5",
+          "4300"
+        ],
+        [
+          "147.5",
+          "1000"
+        ]
+      ],
+      "offers": [
+        [
+          "O:ATO",
+          "9400"
+        ],
+        [
+          "138.5",
+          "2400"
+        ],
+        [
+          "139",
+          "19400"
+        ],
+        [
+          "142",
+          "3000"
+        ],
+        [
+          "144",
+          "9000"
+        ]
+      ],
+      "snapshotChecksum": "3023434458"
+...
+```
+
+The example of formatted string of initial snapshot message,
+
+`O:ATO|O:9400,B:ATO|B:30100,152.5|B:600,150.5|B:9900,148.5|B:4300,147.5|B:1000,144|O:9000,142|O:3000,139|O:19400,138.5|O:2400`
+
+#### Update message
+
+```graphql
+...
+      "action": "U",
+      "bids": [
+        [
+          "B:ATO",
+          "50100"
+        ]
+      ],
+...
+```
+
+After received the update message, then change current value with new value
+
+For example, the bid side at `B:ATO` changed to `50100`, the value of `B:ATO` in the string from initial snapshot state should be `B:ATO|50100`
+
+New string should be like this example : `O:ATO|O:9400,B:ATO|B:50100,152.5|B:600,150.5|B:9900,148.5|B:4300,147.5|B:1000,144|O:9000,142|O:3000,139|O:19400,138.5|O:2400`
+
+And calculate checksum to validate state between client and server.
+
+
 
 ### **Authentication**
 
