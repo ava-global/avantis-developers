@@ -12,4 +12,5 @@
   * [💰 Price](api/price.md)
   * [🏠 Profile](api/profile.md)
   * [⚡ Websocket](api-docs/websocket.md)
+  * [✨ asset](api-docs/price-1.md)
 * [🛫 Insight @ Avantis](https://insight.avantis.finance)

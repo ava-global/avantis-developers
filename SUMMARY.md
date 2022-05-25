@@ -10,7 +10,7 @@
   * [🗄 Contents](api/content.md)
   * [📈 Fundamental](api/fundamental.md)
   * [💰 Price](api/price.md)
-  * [💰 Asset](api-docs/price-1.md)
+  * [✨ Asset](api-docs/price-1.md)
   * [🏠 Profile](api/profile.md)
   * [⚡ Websocket](api-docs/websocket.md)
 * [🛫 Insight @ Avantis](https://insight.avantis.finance)
