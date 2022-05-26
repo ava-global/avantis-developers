@@ -171,7 +171,7 @@ Result will have 2 types:&#x20;
   * contains 5 elements of bid and offer data on each side.
 * update message
   * action: **I** (Insert), **D** (Delete), **U** (Update)
-  * contains only updated value of bid or offer
+  * contains only changed value of bid or offer
 
 example of result - Initial message
 
@@ -265,6 +265,8 @@ If message contains **ATO** or **ATC**, the format will be as follows:
 `{side}:{ATO,ATC}|{side}:{volume},{best_`_`price}|{side}:{volume},{second_price`_`}|`_`{side}:{volume},...`_
 
 The final checksum is the `crc32` value of this string
+
+reference: [ftx](https://docs.ftx.com/#orderbooks)
 
 #### Initial message
 
