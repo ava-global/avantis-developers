@@ -17,7 +17,7 @@ or you can use playground to play around with data first
 ### Available Subscriptions
 
 * [StockPrice](websocket.md#subscribe-to-get-real-time-stock-price)
-* Bid-Ask(TBD)
+* [Bid-Ask](websocket.md#subscribe-to-get-real-time-stock-bid-offer)
 
 ### GraphQL Schema
 
@@ -167,10 +167,10 @@ subscription bidoffer {
 Result will have 2 types:&#x20;
 
 * initial message
-  * action: S
+  * action: **S** (Snapshot)
   * contains 5 elements of bid and offer data on each side.
 * update message
-  * action: I, D, U
+  * action: **I** (Insert), **D** (Delete), **U** (Update)
   * contains only updated value of bid or offer
 
 example of result - Initial message
