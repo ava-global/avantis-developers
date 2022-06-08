@@ -26,8 +26,8 @@ Fields explanation.
     "source_id": 1,
     "source_news_id": "T1111",
     "thumbnail_url": "https://example.com/image.png"
-    "content_stock_symbols": [
-        "TSLA"
+    "content_stocks": [
+        {"symbol": "TSLA", "exchange_id": 8}
     ],
     "content_tags": [
         "VEHICLE"
