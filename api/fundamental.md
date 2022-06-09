@@ -239,3 +239,45 @@ this should get the result
   }
 }
 ```
+
+### get list of filtered of mutual fund historical dividiends with exchange id
+
+example
+
+```graphql
+query {
+  historicalDividends(
+    input: {
+      filter: {
+        exchangeSymbolEq: "SET"
+        startDate: "2022-04-01"
+        endDate: "2022-04-30"
+      }
+    }
+  ) {
+    stockId
+    exDate
+    payDate
+    currencyIsoCode
+    amount
+  }
+}
+```
+
+this should get the result
+
+```graphql
+{
+  "data": {
+    "historicalDividends": [
+      {
+        "stockId": 128091,
+        "exDate": "2022-04-12",
+        "payDate": "2022-04-29",
+        "currencyIsoCode": "THB",
+        "amount": "0.1250"
+      }
+    ]
+  }
+}
+```
