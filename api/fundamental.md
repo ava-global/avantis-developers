@@ -240,7 +240,7 @@ this should get the result
 }
 ```
 
-### get list of filtered of mutual fund historical dividiends with exchange id
+### get list of filtered of mutual fund historical dividiends with exchange symbol
 
 example
 
