@@ -145,6 +145,16 @@ Feature: Display User Portfolio
 
 ![](../iOS/assets/codecov.png)
 
+### Why? Github Actions + self-hosted runner
+
+![Github action + cloud host runner](<../.gitbook/assets/Screen Shot 2565-07-10 at 20.51.46.png>)
+
+![Mac Mini Cloud Hosting](<../.gitbook/assets/Screen Shot 2565-07-10 at 20.51.51.png>)
+
+![Github runner on mac mini m1](<../.gitbook/assets/Screen Shot 2565-07-10 at 20.52.01 (1).png>)
+
+![Fast delivery](<../.gitbook/assets/Screen Shot 2565-07-10 at 20.52.06.png>)
+
 ## Design System
 
 * DEV x Designer (UI)
@@ -172,24 +182,26 @@ Feature: Display User Portfolio
 ## Xcode Template
 
 > XCode Templates is a tool for creating code snippets to give you a better starting point to achieve your goal. In this tutorial I will walk you through preparing a custom template for MVVM project architecture.
+>
+> #### Scene
+>
+> * NameViewController.swift
+> * NamePresenter.swift
+> * NameInteractor.swift
+> * NameRouter.swift
+> * NameFacade.swift
+> * NameSceneModel.swift
+> * NameSceneWorker.swift
+> * Name.storybroad
+>
+> #### View Component
+>
+> * NameView.swift
+> * NameViewModel.swift
+>
+>
 
 ![](../iOS/assets/xcode-2.png) ![](../iOS/assets/xcode-1.png)
 
-### Clean Architecture Template
 
-#### Scene
-
-* NameViewController.swift
-* NamePresenter.swift
-* NameInteractor.swift
-* NameRouter.swift
-* NameFacade.swift
-* NameSceneModel.swift
-* NameSceneWorker.swift
-* Name.storybroad
-
-#### View Component
-
-* NameView.swift
-* NameViewModel.swift
 
