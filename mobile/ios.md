@@ -128,14 +128,14 @@ Feature: Display User Portfolio
 
 ![](../iOS/assets/pipeline-pr.png)
 
-### Pipeline 2: On push request (Merged)
+### Pipeline 2: On push Develop or Main
 
 ![](../iOS/assets/pipeline-push.png)
 
 ### Release & Tags
 
 * Changed Log / Features Note
-* Tags (Versioning symmetric https://semver.org)
+* Tags (Versioning symmetric `https://semver.org`)
 
 ![](../iOS/assets/release-tag.png)
 
