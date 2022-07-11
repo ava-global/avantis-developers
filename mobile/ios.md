@@ -118,7 +118,7 @@ Feature: Display User Portfolio
 * Push develop
 * Push main
 
-![](../iOS/assets/pipeline-categories.png)
+![](../.gitbook/assets/spaces\_F8SjnjlAom2DIfHXJ9JC\_uploads\_git-blob-926bbc68a2a472586c2c9d2c652b467c75d1b9e9\_pipeline-categories.png)
 
 ### Pipeline State
 
