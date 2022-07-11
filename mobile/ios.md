@@ -46,7 +46,7 @@ SSL pinning
 * \[LV.2] Credential (keychain)
 * \[LV.3] Super credential (keychain + secure enclave)
 
-![](../iOS/assets/enclave.png)
+![A12, S4, and later systems on chip (SoCs)](../iOS/assets/enclave.png)
 
 
 
