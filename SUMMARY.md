@@ -13,4 +13,5 @@
   * [✨ Asset](api-docs/price-1.md)
   * [🏠 Profile](api/profile.md)
   * [⚡ Websocket](api-docs/websocket.md)
+  * [🔑     Api Gateway Authentication](api-docs/api-gateway-authentication.md)
 * [🛫 Insight @ Avantis](https://insight.avantis.finance)

@@ -4,19 +4,25 @@ An API for creating and query contents.
 
 ## Publish a content
 
+{% hint style="warning" %}
+We recommend using an api-gateway endpoint for programatic client. Playground endpoint is for development and debugging only.
+
+Api Key is required in order to access service via an api-gateway, please request an Api Key by contacting us.
+{% endhint %}
+
 ### DEV Environment Endpoints
+
 A playground endpoint for publishing a content is [https://dev.api.avantis.finance/playground/content/publish](https://dev.api.avantis.finance/playground/content/publish)
 
 A api-gateway endpoint for publishing a content is [https://dev.api.avantis.finance/v1/content/publish](https://dev.api.avantis.finance/v1/content/publish)
 
 ### PROD Environment Endpoints
 
-*Note:* There is no playground content api endpoint in *PROD*.
+{% hint style="info" %}
+There is no playground content api endpoint in _PROD_.
+{% endhint %}
 
-API Key is required to access a service via an api-gateway, Please request an API Key from an Admin.
-
-A api-gateway endpoint for publishing a content is [https://api.avantis.finance/v1/content/publish](https://api.avantis.finance/v1/content/publish)
-
+An api-gateway endpoint for publishing a content is [https://api.avantis.finance/v1/content/publish](https://api.avantis.finance/v1/content/publish)
 
 An example of a request to create a content (_POST_).
 
@@ -66,16 +72,15 @@ An endpoint for querying data via an programatic client. [https://dev.api.avanti
 
 _Requirement_
 
-* A client have to set a `X-Auth-Request-Groups` HTTP header value to a csv of group ids before access the graphql endpoint.
+* A client have to set a `X-Auth-Request-Groups` HTTP header value to a comma seperated values of group ids before access the graphql endpoint. Please contact Admin to find out which is a proper `X-Auth-Request-Groups`  value for your request a Graphiql playground.
 
 ### PROD Environment
 
-*Note:* There is no playground content api endpoint in *PROD*.
+{% hint style="info" %}
+There is no playground content api endpoint in _PROD_.
+{% endhint %}
 
-API Key is required to access a service via an api-gateway, Please request an API Key from an Admin.
-
-A api-gateway endpoint for querying data via an programatic client. [https://api.avantis.finance/v1/content/graphql](https://api.avantis.finance/v1/content/graphql)
-
+An api-gateway endpoint for querying data via an programatic client. [https://api.avantis.finance/v1/content/graphql](https://api.avantis.finance/v1/content/graphql)
 
 ### Filter
 
@@ -90,7 +95,7 @@ This Graphql query operation allows a client to get a list of contents by provid
 * `offset`
 * `limit`
 
-X-Auth-Request-Groups header is required. An example header.
+If you're using a DEV Environment, X-Auth-Request-Groups header is required. An example header.
 
 ```graphql
 {
