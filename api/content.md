@@ -4,7 +4,19 @@ An API for creating and query contents.
 
 ## Publish a content
 
-An endpoint for publishing a content is [https://dev.api.avantis.finance/playground/content/publish](https://dev.api.avantis.finance/playground/content/publish)
+### DEV Environment Endpoints
+A playground endpoint for publishing a content is [https://dev.api.avantis.finance/playground/content/publish](https://dev.api.avantis.finance/playground/content/publish)
+
+A api-gateway endpoint for publishing a content is [https://dev.api.avantis.finance/v1/content/publish](https://dev.api.avantis.finance/v1/content/publish)
+
+### PROD Environment Endpoints
+
+*Note:* There is no playground content api endpoint in *PROD*.
+
+API Key is required to access a service via an api-gateway, Please request an API Key from an Admin.
+
+A api-gateway endpoint for publishing a content is [https://api.avantis.finance/v1/content/publish](https://api.avantis.finance/v1/content/publish)
+
 
 An example of a request to create a content (_POST_).
 
@@ -25,7 +37,7 @@ Fields explanation.
     "content_type_id": 2,
     "source_id": 1,
     "source_news_id": "T1111",
-    "thumbnail_url": "https://example.com/image.png"
+    "thumbnail_url": "https://example.com/image.png",
     "content_stocks": [
         {"symbol": "TSLA", "exchange_id": 8}
     ],
@@ -46,13 +58,24 @@ Fields explanation.
 
 ## Content Graphql
 
+### DEV Environment
+
 This is a base url for quering mentioned data via a Graphql Playground. [https://dev.api.avantis.finance/playground/content/graphiql](https://dev.api.avantis.finance/playground/content/graphiql)
 
-And please use this endpoint for querying data via an programatic client. [https://dev.api.avantis.finance/playground/content/graphql](https://dev.api.avantis.finance/playground/content/graphql)
+An endpoint for querying data via an programatic client. [https://dev.api.avantis.finance/playground/content/graphql](https://dev.api.avantis.finance/playground/content/graphql)
 
 _Requirement_
 
 * A client have to set a `X-Auth-Request-Groups` HTTP header value to a csv of group ids before access the graphql endpoint.
+
+### PROD Environment
+
+*Note:* There is no playground content api endpoint in *PROD*.
+
+API Key is required to access a service via an api-gateway, Please request an API Key from an Admin.
+
+A api-gateway endpoint for querying data via an programatic client. [https://api.avantis.finance/v1/content/graphql](https://api.avantis.finance/v1/content/graphql)
+
 
 ### Filter
 
