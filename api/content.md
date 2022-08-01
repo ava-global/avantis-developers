@@ -313,3 +313,111 @@ A result.
   }
 }
 ```
+
+An example query by stock symbol.
+
+```graphql
+query {
+  contents(
+    input: {
+      filter: {
+        stockIdsIn: [148531]
+        limit: 2
+        offset: 0
+        stockSymbolsIn: ["AAPL"]
+      }
+    }
+  ) {
+    contentId
+    contentDetails {
+      contentId
+      contentUrl
+      headline
+      shortDescription
+      mimeType
+    }
+    contentSource {
+      sourceId
+      name
+    }
+    contentStocks {
+      stockSymbol
+    }
+    contentTags {
+      tag
+    }
+    publishedTimestampUtc
+    thumbnailUrl
+  }
+}
+```
+
+A result.
+
+```json
+{
+  "data": {
+    "contents": [
+      {
+        "contentId": 20407,
+        "contentDetails": [
+          {
+            "contentId": 20407,
+            "contentUrl": "https://finance.yahoo.com/news/apples-airtags-tracking-capabilities-143609999.html",
+            "headline": "Apple’s AirTags are being used to stalk people, here’s how to prevent that",
+            "shortDescription": "Apple’s (AAPL) AirTags can serve as a great tool for people who lose things. My wife and I have attached AirTags to our house keys in case we misplace them either out in the world or, more likely, in our apartment.",
+            "mimeType": "text/html"
+          }
+        ],
+        "contentSource": {
+          "sourceId": 4,
+          "name": "Yahoo Finance"
+        },
+        "contentStocks": [
+          {
+            "stockSymbol": "AAPL"
+          }
+        ],
+        "contentTags": [
+          {
+            "tag": "NEWS"
+          }
+        ],
+        "publishedTimestampUtc": 1642386960,
+        "thumbnailUrl": "https://media.zenfs.com/en/reuters-finance.com/e54c817036bf78a9c90c8605b33324ba"
+      },
+      {
+        "contentId": 20408,
+        "contentDetails": [
+          {
+            "contentId": 20408,
+            "contentUrl": "https://finance.yahoo.com/news/u-senate-panel-debate-app-025638871.html",
+            "headline": "U.S. Senate panel to debate app store reform bill",
+            "shortDescription": "WASHINGTON (Reuters) - A U.S. Senate panel is set on Thursday to debate a bill that aims to rein in app stores of companies that some lawmakers say exert too much market control, including Apple Inc and Alphabet Inc's Google.",
+            "mimeType": "text/html"
+          }
+        ],
+        "contentSource": {
+          "sourceId": 4,
+          "name": "Yahoo Finance"
+        },
+        "contentStocks": [
+          {
+            "stockSymbol": "GOOG"
+          },
+          {
+            "stockSymbol": "AAPL"
+          }
+        ],
+        "contentTags": [
+          {
+            "tag": "NEWS"
+          }
+        ],
+        "publishedTimestampUtc": 1642474560,
+        "thumbnailUrl": "https://s.yimg.com/ny/api/res/1.2/efFz2dKzpxe_m0JLtYDR1Q--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTY0MDtjZj13ZWJw/https://s.yimg.com/uu/api/res/1.2/6_m7UlIhlT2m84D1oYaaXg--~B/aD01MzM7dz04MDA7YXBwaWQ9eXRhY2h5b24-/https://media.zenfs.com/en/reuters-finance.com/aa654fe0f14de6ad2052cbc8f8120942"
+      }
+    ]
+  }
+}
+```
