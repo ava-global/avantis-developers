@@ -4,11 +4,9 @@ An API for creating and query contents.
 
 ## Publish a content
 
-{% hint style="warning" %}
-We recommend using an api-gateway endpoint for programatic client. Playground endpoint is for development and debugging only.
+> :warning: We recommend using an api-gateway endpoint for programatic client. Playground endpoint is for development and debugging only.
 
-Api Key is required in order to access service via an api-gateway, please request an Api Key by contacting us.
-{% endhint %}
+> ⚠️ Api Key is required in order to access service via an api-gateway, please request an Api Key by contacting us.
 
 ### DEV Environment Endpoints
 
@@ -18,9 +16,7 @@ A api-gateway endpoint for publishing a content is [https://dev.api.avantis.fina
 
 ### PROD Environment Endpoints
 
-{% hint style="info" %}
-There is no playground content api endpoint in _PROD_.
-{% endhint %}
+> ℹ️ There is no playground content api endpoint in _PROD_.
 
 An api-gateway endpoint for publishing a content is [https://api.avantis.finance/v1/content/publish](https://api.avantis.finance/v1/content/publish)
 
@@ -76,9 +72,8 @@ _Requirement_
 
 ### PROD Environment
 
-{% hint style="info" %}
-There is no playground content api endpoint in _PROD_.
-{% endhint %}
+> ℹ️ There is no playground content api endpoint in _PROD_.
+
 
 An api-gateway endpoint for querying data via an programatic client. [https://api.avantis.finance/v1/content/graphql](https://api.avantis.finance/v1/content/graphql)
 
