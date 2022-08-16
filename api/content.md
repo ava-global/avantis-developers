@@ -57,6 +57,35 @@ Fields explanation.
     ]
 }
 ```
+## Delete a content
+
+> :warning: We recommend using an api-gateway endpoint for programatic client. Playground endpoint is for development and debugging only.
+
+> ⚠️ Api Key is required in order to access service via an api-gateway, please request an Api Key by contacting us.
+
+Path parameter is `content_id`
+
+Use `DELETE` method
+
+### DEV Environment Endpoints
+
+X-Auth-Request-Groups header is required. An example header.
+
+```graphql
+{
+  "X-Auth-Request-Groups": 2
+}
+```
+
+A playground endpoint for delete a content is [https://dev.api.avantis.finance/playground/content/{content_id}](https://dev.api.avantis.finance/playground/content/{content_id})
+
+A api-gateway endpoint for delete a content is [https://dev.api.avantis.finance/v1/content/{content_id}](https://dev.api.avantis.finance/v1/content/{content_id})
+
+### PROD Environment Endpoints
+
+> ℹ️ There is no playground content api endpoint in _PROD_.
+
+An api-gateway endpoint for delete a content is [https://api.avantis.finance/v1/content/{content_id}](https://api.avantis.finance/v1/content/{contend_id})
 
 ## Content Graphql
 
