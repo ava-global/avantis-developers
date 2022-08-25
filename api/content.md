@@ -112,6 +112,7 @@ This Graphql query operation allows a client to get a list of contents by provid
 
 * `sourceIdsIn` Filter by a list of `source_id`. _Optional_
 * `stockIdsIn` Filter by a list of `stock_id`. _Optional_
+* `stocksIn` Filter by a list of `stock_symbol` and `exchange_symbol`. _Optional_
 * `contentTypeIdEq` Filter by `content_type_id`. _Optional_
 * `contentTagsIn` Filter by a list of stock code. _Optional_
 * `orderBy` Order by field. (Currently, support only `published_when`). _Optional_
@@ -348,7 +349,7 @@ query {
         stockIdsIn: [148531]
         limit: 2
         offset: 0
-        stockSymbolsIn: ["AAPL"]
+        stocksIn: [{stockSymbol: "AAPL", exchangeSymbol: "NasdaqGS"}]
       }
     }
   ) {
