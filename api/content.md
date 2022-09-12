@@ -57,15 +57,24 @@ Fields explanation.
     ]
 }
 ```
+
 ## Delete a content
 
 > :warning: We recommend using an api-gateway endpoint for programatic client. Playground endpoint is for development and debugging only.
 
 > ⚠️ Api Key is required in order to access service via an api-gateway, please request an Api Key by contacting us.
 
-Path parameter is `content_id`
+#### Delete by content\_id
 
-Use `DELETE` method
+```
+DELETE /{content_id}
+```
+
+#### Delete by source\_id and source\_news\_id
+
+```
+DELETE /source/{source_id}/source_news/{source_news_id}
+```
 
 ### DEV Environment Endpoints
 
@@ -77,15 +86,15 @@ X-Auth-Request-Groups header is required. An example header.
 }
 ```
 
-A playground endpoint for delete a content is [https://dev.api.avantis.finance/playground/content/{content_id}](https://dev.api.avantis.finance/playground/content/{content_id})
+A playground endpoint for delete a content is [https://dev.api.avantis.finance/playground/content/{content\_id}](https://dev.api.avantis.finance/playground/content/%7Bcontent\_id%7D)
 
-A api-gateway endpoint for delete a content is [https://dev.api.avantis.finance/v1/content/{content_id}](https://dev.api.avantis.finance/v1/content/{content_id})
+A api-gateway endpoint for delete a content is [https://dev.api.avantis.finance/v1/content/{content\_id}](https://dev.api.avantis.finance/v1/content/%7Bcontent\_id%7D)
 
 ### PROD Environment Endpoints
 
 > ℹ️ There is no playground content api endpoint in _PROD_.
 
-An api-gateway endpoint for delete a content is [https://api.avantis.finance/v1/content/{content_id}](https://api.avantis.finance/v1/content/{contend_id})
+An api-gateway endpoint for delete a content is [https://api.avantis.finance/v1/content/{content\_id}](https://api.avantis.finance/v1/content/%7Bcontend\_id%7D)
 
 ## Content Graphql
 
@@ -97,12 +106,11 @@ An endpoint for querying data via an programatic client. [https://dev.api.avanti
 
 _Requirement_
 
-* A client have to set a `X-Auth-Request-Groups` HTTP header value to a comma seperated values of group ids before access the graphql endpoint. Please contact Admin to find out which is a proper `X-Auth-Request-Groups`  value for your request a Graphiql playground.
+* A client have to set a `X-Auth-Request-Groups` HTTP header value to a comma seperated values of group ids before access the graphql endpoint. Please contact Admin to find out which is a proper `X-Auth-Request-Groups` value for your request a Graphiql playground.
 
 ### PROD Environment
 
 > ℹ️ There is no playground content api endpoint in _PROD_.
-
 
 An api-gateway endpoint for querying data via an programatic client. [https://api.avantis.finance/v1/content/graphql](https://api.avantis.finance/v1/content/graphql)
 
