@@ -122,6 +122,7 @@ This Graphql query operation allows a client to get a list of contents by provid
 * `stockIdsIn` Filter by a list of `stock_id`. _Optional_
 * `stocksIn` Filter by a list of `stock_symbol` and `exchange_symbol`. _Optional_
 * `contentTypeIdEq` Filter by `content_type_id`. _Optional_
+* `contentDetailHeadlineLike` Filter by content detail's headline. _Optional_
 * `contentTagsIn` Filter by a list of stock code. _Optional_
 * `orderBy` Order by field. (Currently, support only `published_when`). _Optional_
 * `orderDirection` _Optional_
